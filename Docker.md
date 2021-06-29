@@ -7,8 +7,8 @@ Related GitHub repository:
 
 ## How To run the Docker Compose Stack
 
-1. Copy [docker-compose.yml] and [.env] to your disk into the same folder.
-2. Configure the variables in [.env] to suit your needs.
+1. Copy *docker-compose.yml* and *.env* to your disk into the same folder.
+2. Configure the variables in *.env* to suit your needs.
 3. Run the docker stack.
 
 ```sh
@@ -23,19 +23,19 @@ The following configuration options need to be set in the [.env].
 
 ### Timezone
 
-```yaml
+```txt
 TIMEZONE="America/Los_Angeles"
 ```
 
 ### Logfile Mount
 
-```yaml
+```txt
 LOGPATH="C:\Docker\q3\osp\logs\games.log:/vsp/games.log"
 ```
 
 ### VSP & DB configuration
 
-```yaml
+```txt
 SQLUSER="someUserName"
 SQLPASS="somePassword1234"
 DBNAME="vsp"
@@ -43,31 +43,15 @@ DBNAME="vsp"
 
 #### Server Details
 
-```yaml
+```txt
 SERVERTITLE="Duff Brewery - OSP"
-```
-```yaml
 SERVERNAMEIP="q3.monroec.com:27960"
-```
-```yaml
 SERVERGAMEMOD="OSP"
-```
-```yaml
 SERVERADMINS="duffman91"
-```
-```yaml
 SERVEREMAILIM="@duffman91 on Discord"
-```
-```yaml
 WEBSITEADDRESS="http://q3.monroec.com"
-```
-```yaml
 WEBSITENAME="Duff Brewery"
-```
-```yaml
 SERVERQUOTE="...sup?"
-```
-```yaml
 DEFAULTSKIN="evilsmurfs"
 ```
 
