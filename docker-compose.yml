@@ -2,37 +2,44 @@ version: '3'
 
 services:
   db:
-    # image: mysql:8.0.23
     image: mariadb:10.5.9
     restart: always
     environment:
-      TZ: Europe/Berlin
+      TZ: "${TIMEZONE}"
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-      MYSQL_DATABASE: vsp
-      MYSQL_USER:
-      MYSQL_PASSWORD:
+      MYSQL_DATABASE: "${DBNAME}"
+      MYSQL_USER: "${SQLUSER}"
+      MYSQL_PASSWORD: "${SQLPASS}"
     ports:
       - "3306:3306"
   web:
+    # Use evilru's image or build it from the Dockerfile
+    image: evilru/quake3-vsp-stats:latest
     restart: always
     depends_on:
       - db
     volumes:
-      # - /path/to/your/games.log:/vsp/games.log
+      - "${LOGPATH}":/vsp/games.log
       # - /path/to/your/server.gif:/vsp/pub/images/server.gif
       # - /path/to/your/logo.gif:/vsp/pub/images/logo.gif
       - logdata:/vsp/logdata
     ports:
       - 80:80
     environment:
-      TZ: Europe/Berlin
+      TZ: "${TIMEZONE}"
       # needs to be at least 6 characters long
       # VSP_WEB_PASSWORD:
-      DB_HOSTNAME: db
-      DB_NAME: vsp
-      # use the same value as for MYSQL_USER
-      DB_USERNAME:
-      # use the same value as for MYSQL_PASSWORD
-      DB_PASSWORD:
+      DB_NAME: "${DBNAME}"
+      DB_USERNAME: "${SQLUSER}"
+      DB_PASSWORD: "${SQLPASS}"
+      SERVER_TITLE: "${SERVERTITLE}"
+      SERVER_NAME_IP: "${SERVERNAMEIP}"
+      SERVER_GAME_MOD: "${SERVERGAMEMOD}"
+      SERVER_ADMINS: "${SERVERADMINS}"
+      SERVER_EMAIL_IM: "${SERVEREMAILIM}"
+      WEB_SITE_ADDRESS: "${WEBSITEADDRESS}"
+      WEB_SITE_NAME: "${WEBSITENAME}"
+      SERVER_QUOTE: "${SERVERQUOTE}"
+      DEFAULT_SKIN: "${DEFAULTSKIN}"
 volumes:
   logdata:
