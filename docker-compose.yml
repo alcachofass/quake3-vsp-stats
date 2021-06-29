@@ -19,7 +19,7 @@ services:
     depends_on:
       - db
     volumes:
-      - "${LOGPATH}":/vsp/games.log
+      - "${LOGPATH}"
       # - /path/to/your/server.gif:/vsp/pub/images/server.gif
       # - /path/to/your/logo.gif:/vsp/pub/images/logo.gif
       - logdata:/vsp/logdata
