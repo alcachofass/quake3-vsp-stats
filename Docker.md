@@ -7,8 +7,8 @@ Related GitHub repository:
 
 ## How To run the Docker Compose Stack
 
-1. Copy *docker-compose.yml* and *.env* to your disk into the same folder.
-2. Configure the variables in *.env* to suit your needs.
+1. Copy **docker-compose.yml** and **.env** to your disk into the same folder.
+2. Configure the variables in **.env** to suit your needs.
 3. Run the docker stack.
 
 ```sh
@@ -19,7 +19,7 @@ The configured games.log will be checked every 15 minutes for new games.
 
 ## Configuration
 
-The following configuration options need to be set in the [.env].
+The following configuration options need to be set in the **.env**.
 
 ### Timezone
 
